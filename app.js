@@ -9,31 +9,51 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 app.use(function (req, res, next) {
-  const d = Date(Date.now())
-  console.log('Time:', d.toString());
+  console.log('-----------------------------')
   console.log('Request Type:', req.method);
   console.log('Request URL:', req.originalUrl)
   next();
 });
 
-app.get('/', (req, res) => {
-  // res.send('列出全部 Todo')
-  res.render('index')
+app.get('/', function (req, res, next) {
+  let dateReq = Date.now()
+  console.log('Time Req:', Date(dateReq).toString());
+  res.render('index');
+  let dateRes = Date.now()
+  console.log('Time Res:', Date(dateRes).toString());
+  const time = dateRes - dateReq
+  console.log('total time:', time, "ms")
 })
 
+
 app.get('/new', (req, res) => {
-  // res.send('新增 Todo 頁面')
-  res.render('index')
+  let dateReq = Date.now()
+  console.log('Time Req:', Date(dateReq).toString());
+  res.render('index');
+  let dateRes = Date.now()
+  console.log('Time Res:', Date(dateRes).toString());
+  const time = dateRes - dateReq
+  console.log('total time:', time, "ms")
 })
 
 app.get('/:id', (req, res) => {
-  // res.send('顯示一筆 Todo')
-  res.render('index')
+  let dateReq = Date.now()
+  console.log('Time Req:', Date(dateReq).toString());
+  res.render('index');
+  let dateRes = Date.now()
+  console.log('Time Res:', Date(dateRes).toString());
+  const time = dateRes - dateReq
+  console.log('total time:', time, "ms")
 })
 
 app.post('/', (req, res) => {
-  // res.send('新增一筆  Todo')
-  res.render('index')
+  let dateReq = Date.now()
+  console.log('Time Req:', Date(dateReq).toString());
+  res.render('index');
+  let dateRes = Date.now()
+  console.log('Time Res:', Date(dateRes).toString());
+  const time = dateRes - dateReq
+  console.log('total time:', time, "ms")
 })
 
 app.listen(port, () => {
