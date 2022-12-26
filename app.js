@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/', function (req, res, next) {
+app.get('/', function (req, res) {
   let dateReq = Date.now()
   console.log('Time Req:', Date(dateReq).toString());
   res.render('index');
@@ -23,6 +23,7 @@ app.get('/', function (req, res, next) {
   console.log('Time Res:', Date(dateRes).toString());
   const time = dateRes - dateReq
   console.log('total time:', time, "ms")
+  return
 })
 
 
@@ -34,6 +35,7 @@ app.get('/new', (req, res) => {
   console.log('Time Res:', Date(dateRes).toString());
   const time = dateRes - dateReq
   console.log('total time:', time, "ms")
+  return
 })
 
 app.get('/:id', (req, res) => {
@@ -44,6 +46,7 @@ app.get('/:id', (req, res) => {
   console.log('Time Res:', Date(dateRes).toString());
   const time = dateRes - dateReq
   console.log('total time:', time, "ms")
+  return
 })
 
 app.post('/', (req, res) => {
@@ -54,6 +57,7 @@ app.post('/', (req, res) => {
   console.log('Time Res:', Date(dateRes).toString());
   const time = dateRes - dateReq
   console.log('total time:', time, "ms")
+  return
 })
 
 app.listen(port, () => {
